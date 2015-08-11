@@ -1,0 +1,98 @@
+{% extends "petitions/layout.html" %}
+
+{% block title %}Sign the Netzpolitik petition!{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 medium-8 column">
+            <p><a href="https://netzpolitik.org/" target="_blank"><img src="/static/images/netzpolitik.png" alt="Netzpolitik"></a><p>
+
+            <h1>The Statement:</h1>
+
+            <p>"The investigation against Netzpolitik.org for treason and their unknown
+            sources is an attack against the free press. Charges of treason against
+            journalists performing their essential work is a violation of the fifth
+            article of the German constitution. We demand an end to the
+            investigation into Netzpolitik.org and their unknown sources."</p>
+
+            <p>"Die Ermittlungen gegen die Redaktion Netzpolitik.org und ihrer
+            unbekannten Quellen wegen Landesverrats sind ein Angriff auf die
+            Pressefreiheit. Klagen wegen Landesverrats gegen Journalisten, die
+            lediglich ihrer für die Demokratie unverzichtbaren Arbeit nachgehen,
+            stellen eine Verletzung von Artikel 5 Grundgesetz dar. Wir fordern die
+            sofortige Einstellung der Ermittlungen gegen die Redakteure von
+            Netzpolitik.org und ihrer Quellen."</p>
+
+            <p>"Les charges contre Netzpolitik.org et leur source inconnue pour
+            trahison sont une attaque contre la liberté de la presse. La poursuite
+            pour trahison des journalistes qui effectuent un travail essentiel pour
+            la démocratie est une violation du cinquième article de la constitution
+            allemande. Nous demandons l'arrêt des poursites contre les journalistes
+            de Netzpolitik.org et leurs sources."</p>
+
+
+            <p>"La investigación en contra de Netzpolitik.org y su fuente por traición
+            es un ataque a la libertad de la prensa. Acusaciones de traición a la
+            patria hechas contra periodistas quienes estan realizando su labor
+            esencial es una violacion del quinto artículo de la Constitución
+            alemana. Exigimos que se detenga la investigación en contra de
+            Netzpolitik.org y su fuente desconocida."</p>
+
+            <p>"L'indagine per tradimento contro Netzpolitik.org e le sue
+            fonti è un attacco contro la stampa libera. Le accuse di
+            tradimento contro giornalisti che svolgono il loro lavoro 
+            essenziale sono una violazione dell'articolo 5 della
+            Costituzione tedesca.  Chiediamo la fine dell'indagine contro
+            Netzpolitik.org e le sue fonti"</p>
+
+            <p>“Netzpolitik.org’a ve anonim kaynaklarına karşı başlatılan vatan
+            hainliği soruşturması, özgür basına bir saldırıdır. İşlerini yaptıkları
+            için gazetecilere vatan hainliği suçlamasında bulunmak, Almanya
+            Anayasası’nın 5. maddesinin açık bir şekilde ihlal edilmesidir.
+            Netzpolitik.org ve anonim kaynakları hakkında başlatılan soruşturmanın
+            hemen sonlandırılmasını talep ediyoruz.”</p>
+
+            <p>La investigació per traïció en contra de Netzpolitik.org i la
+            seva font és un atac a la llibertat de la premsa. Les acusacions de
+            traïció a la pàtria fetes contra periodistes que fan la seva tasca
+            essencial és una violació del cinquè article de la Constitució
+            alemanya. Exigim que s'aturi la investigació en contra de
+            Netzpolitik.org i la seva font desconeguda.</p>
+
+            <hr>
+
+            <div class="show-for-medium-up">
+                <h4>Signatures:</h4>
+
+                {% for sig in signatures %}
+                    {% if forloop.counter0|divisibleby:2 %}
+                        <div class="row">
+                    {% endif %}
+
+                    <div class="small-12 medium-6 column">
+                        <p class="signame">{{ sig.name }}<br><span class="affil">{{ sig.affiliation }}</span></p>
+                    </div>
+
+                    {% if forloop.counter|divisibleby:2 %}
+                        </div>
+                    {% endif %}
+                    {% if forloop.last and forloop.counter0|divisibleby:2 %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="small-12 medium-4 column panel">
+            <h2>Add Your Name!</h2>
+            <p>Number of new signatures since launch: <strong>{{ petition.signatures }}</strong></p>
+
+            <form action="{% url 'sign' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+
+                <input type="submit" value="Add!" class="button radius btn-success">
+            </form>
+        </div>
+    </div>
+{% endblock %}

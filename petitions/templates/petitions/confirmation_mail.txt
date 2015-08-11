@@ -1,0 +1,15 @@
+Dear {{ name }},
+
+Thank you for signing the petition demanding an end to the investigation into
+Netzpolitik and their sources.
+
+Please click the confirmation link below to confirm your signature:
+
+{{ link }}
+
+Kind regards,
+
+
+
+
+The Netzpolitik Petition Team
