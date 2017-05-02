@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.template import loader
 
+import bcrypt
 import hashlib
 import time
 
@@ -11,18 +12,25 @@ from .forms import PetitionForm
 
 def index(request):
     petition = get_object_or_404(Petition, pk=1)
-    active_signatures = petition.signature_set.filter(active=True).order_by('-timestamp')
+    initial_signatures = petition.signature_set.filter(active=True,
+            initial=True).order_by('-timestamp')
+    active_signatures = petition.signature_set.filter(active=True,
+            initial=False).order_by('-timestamp')
     form = PetitionForm()
 
     return render(request, 'petitions/index.html', {
         'petition': petition, 
-        'signatures': active_signatures, 
+        'signatures': active_signatures,
+        'initial_signatures': initial_signatures,
         'form': form}) 
 
 def sign(request):
     if request.method == 'POST':
         petition = get_object_or_404(Petition, pk=1)
-        active_signatures = petition.signature_set.filter(active=True).order_by('-timestamp')
+        initial_signatures = petition.signature_set.filter(active=True,
+                initial=True).order_by('-timestamp')
+        active_signatures = petition.signature_set.filter(active=True,
+                initial=False).order_by('-timestamp')
         form = PetitionForm(request.POST)
 
         if form.is_valid():
@@ -35,8 +43,8 @@ def sign(request):
                 affil, str(timestamp)]).encode('utf-8')).hexdigest()
 
             # Add values to db
-            s = Signature(email=email, name=name, affiliation=affil, 
-                    petition=petition, link=hash_val)
+            s = Signature(email=bcrypt.hashpw(email.encode(), bcrypt.gensalt()),
+                    name=name, affiliation=affil, petition=petition, link=hash_val)
             s.save()
 
             # Generate confirmation url
@@ -44,9 +52,9 @@ def sign(request):
                 urlconf=None, args=[hash_val]))
 
             # Make a confirmation message
-            subject = 'Netzpolitik: Confirm your signature'
+            subject = 'I am WikiLeaks: Confirm your signature'
             to_addr = [email]
-            from_addr = 'no-reply@netzpolitik.us'
+            from_addr = 'no-reply@iamwikileaks.org'
             message_templ = loader.get_template('petitions/confirmation_mail.txt')
             message = message_templ.render({'link': link, 'name': name})
 
@@ -58,9 +66,9 @@ def sign(request):
         else:
             return render(request, 'petitions/index.html', {
                 'petition': petition, 
-                'signatures': active_signatures, 
+                'signatures': active_signatures,
+                'initial_signatures': initial_signatures,
                 'form': form}) 
-            
     else:
         # redirect to index
         return redirect('index')

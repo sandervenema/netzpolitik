@@ -10,11 +10,12 @@ class Petition(models.Model):
 
 
 class Signature(models.Model):
-    email = models.EmailField()
+    email = models.CharField(max_length=60, null=True)
     name = models.CharField(max_length=200)
     affiliation = models.CharField(max_length=200)
     petition = models.ForeignKey(Petition)
     link = models.CharField(max_length=256, null=True)
     active = models.BooleanField(default=False)
+    initial = models.BooleanField(default=False)
     timestamp = models.DateTimeField(default=timezone.now)
 
