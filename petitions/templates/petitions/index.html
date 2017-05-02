@@ -1,6 +1,7 @@
 {% extends "petitions/layout.html" %}
+{% load i18n %}
 
-{% block title %}Sign the I am WikiLeaks open letter!{% endblock %}
+{% block title %}{% trans "Sign the I am WikiLeaks open letter!" %}{% endblock %}
 
 {% block content %}
     <ul class="languages">
@@ -14,7 +15,7 @@
     <div id="siteswitcher">
         <div class="btn">
             <img src="https://iamwikileaks.org/wp-content/themes/snowden/images/icon.png" alt="Courage" height="15">
-            our network
+            {% trans "our network" %}
             <i class="icon icon-angle-down fa-angle-up"></i>
         </div>
 
@@ -52,14 +53,14 @@
     <div class="row">
         <div class="small-12 medium-8 column">
 
-            <h1>Open Letter:</h1>
+            <h1>{% trans "Open Letter:" %}</h1>
 
             <p>Put open letter here.</p>
 
             <hr>
 
             <div class="show-for-medium-up">
-                <h4>Initial signatures:</h4>
+                <h4>{% trans "Initial signatures:" %}</h4>
 
                 {% for sig in initial_signatures %}
                     {% if forloop.counter0|divisibleby:2 %}
@@ -82,7 +83,7 @@
             <hr>
 
             <div class="show-for-medium-up">
-                <h4>Signatures:</h4>
+                <h4>{% trans "Signatures:" %}</h4>
 
                 {% for sig in signatures %}
                     {% if forloop.counter0|divisibleby:2 %}
@@ -104,14 +105,14 @@
         </div>
 
         <div class="small-12 medium-4 column panel">
-            <h2>Add Your Name!</h2>
-            <p>Number of new signatures since launch: <strong>{{ petition.signatures }}</strong></p>
+            <h2>{% trans "Add Your Name!" %}</h2>
+            <p>{% trans "Number of new signatures since launch:" %} <strong>{{ petition.signatures }}</strong></p>
 
             <form action="{% url 'sign' %}" method="post">
                 {% csrf_token %}
                 {{ form }}
 
-                <input type="submit" value="Add!" class="button radius btn-success">
+                <input type="submit" value="{% trans "Add!" %}" class="button radius btn-success">
             </form>
 
             <p><small>Your e-mail address will not be stored by the system, and

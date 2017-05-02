@@ -3,6 +3,7 @@ import bcrypt
 from django import forms
 from django.core.validators import EmailValidator
 from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext as _
 
 from .models import Signature
 
@@ -14,18 +15,18 @@ def validate_duplicate_email(email):
         if stored_hash is not None:
             stored_hash = stored_hash.encode() # encode as utf-8
             if bcrypt.hashpw(email.encode(), stored_hash) == stored_hash:
-                raise ValidationError("You can only submit the petition once!")
+                raise ValidationError(_("You can only submit the petition once!"))
 
 
 class PetitionForm(forms.Form):
     name = forms.CharField(label='', 
-                           widget=forms.TextInput(attrs={'placeholder': 'Your name'}), 
+                           widget=forms.TextInput(attrs={'placeholder': _('Your name')}), 
                            max_length=200)
     affiliation = forms.CharField(label='',
-                           widget=forms.TextInput(attrs={'placeholder': 'Your affiliation'}), 
+                           widget=forms.TextInput(attrs={'placeholder': _('Your affiliation')}), 
                            max_length=200)
     email = forms.EmailField(label='', 
-                           widget=forms.TextInput(attrs={'placeholder': 'Your e-mail address'}),
+                           widget=forms.TextInput(attrs={'placeholder': _('Your e-mail address')}),
                            validators=[validate_duplicate_email])
 
 

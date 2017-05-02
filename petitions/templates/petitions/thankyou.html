@@ -1,16 +1,17 @@
 {% extends "petitions/layout.html" %}
+{% load i18n %}
 
-{% block title %}Thank you!{% endblock %}
+{% block title %}{% trans "Thank you!" %}{% endblock %}
 
 {% block content %}
     <div class="row">
         <div class="small-12 column">
-            <h1>Thank you!</h1>
+            <h1>{% trans "Thank you!" %}</h1>
 
-            <p>An e-mail with a confirmation link has been sent to your e-mail address to
-            confirm your signature.</p>
+            <p>{% trans "An e-mail with a confirmation link has been sent to your e-mail address to
+            confirm your signature." %}</p>
 
-            <p><a href="/">Back to the petition</a></p>
+            <p><a href="/openletter">{% trans "Back to the petition" %}</a></p>
         </div>
     </div>
 {% endblock %}

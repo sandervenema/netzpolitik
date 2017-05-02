@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.template import loader
+from django.utils.translation import ugettext as _
 
 import bcrypt
 import hashlib
@@ -52,7 +53,7 @@ def sign(request):
                 urlconf=None, args=[hash_val]))
 
             # Make a confirmation message
-            subject = 'I am WikiLeaks: Confirm your signature'
+            subject = _('I am WikiLeaks: Confirm your signature')
             to_addr = [email]
             from_addr = 'no-reply@iamwikileaks.org'
             message_templ = loader.get_template('petitions/confirmation_mail.txt')
