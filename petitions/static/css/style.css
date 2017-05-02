@@ -26,6 +26,7 @@ p.signame span.affil {
 
 ul.errorlist { 
     list-style: none;
+    margin-left: 0 !important;
 }
 
 ul.errorlist li { 
@@ -35,6 +36,9 @@ ul.errorlist li {
 form {
     margin: 0;
 }
+
+.button { background-color: #3a5bb1 !important; }
+.button:hover { background-color: #192850 !important; }
 
 .social {
     margin-bottom: 10px !important;
