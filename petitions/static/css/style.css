@@ -29,3 +29,7 @@ ul.errorlist {
 ul.errorlist li { 
     color: red; 
 }
+
+form {
+    margin: 0;
+}
