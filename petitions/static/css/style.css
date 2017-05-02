@@ -1,3 +1,9 @@
+/* colour placeholder */
+::-webkit-input-placeholder { color: #333; }
+:-moz-placeholder { color: #333; }
+::-moz-placeholder { color: #333; }
+:-ms-input-placeholder { color: #333; }
+
 body {
     margin-top: 60px;
 }
