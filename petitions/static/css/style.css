@@ -1,6 +1,8 @@
 body {
-    margin-top: 20px;
+    margin-top: 60px;
 }
+
+a { color: #192850; }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Times New Roman", "Times", serif;
@@ -33,3 +35,98 @@ ul.errorlist li {
 form {
     margin: 0;
 }
+
+.social {
+    margin-bottom: 10px !important;
+}
+
+.socialdonate {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.header {
+    border-bottom: 1px solid #d8d8d8;
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin-top: 10px;
+}
+.logo img { height: 80px; }
+
+#siteswitcher {
+    color: #666;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    font-size: 14px; 
+    display: inline-block;
+    clear: both;
+    padding: 5px;
+    top: -60px;
+    right: 0;
+    z-index: 9999;
+    position: absolute;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#siteswitcher .btn {
+    cursor: pointer;
+    text-align: right;
+    font-style: italic;
+}
+
+#siteswitcher .sites ul.siteswitcher {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#siteswitcher .sites ul.siteswitcher > li > a {
+    padding: 10px 0;
+    display: inline-block;
+    color: #666;
+    text-decoration: none;
+}
+
+p.runbycourage {
+    position: absolute;
+    margin-top: -35px;
+    font-size: 14px;
+    width: 365px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+a#cta_donate_button {
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    margin-bottom: 30px;
+    vertical-align: middle;
+    display: table-cell;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: 20px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    outline: 1px solid #6aa823;
+    border: 1px solid #7fb726;
+    background: #7fb726;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, #7fb726 0%, #6aa823 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7fb726), color-stop(100%,#6aa823));
+    background: -webkit-linear-gradient(top, #7fb726 0%,#6aa823 100%);
+    background: -o-linear-gradient(top, #7fb726 0%,#6aa823 100%);
+    background: -ms-linear-gradient(top, #7fb726 0%,#6aa823 100%);
+    background: linear-gradient(to bottom, #7fb726 0%,#6aa823 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7fb726', endColorstr='#6aa823',GradientType=0 
+}
+
