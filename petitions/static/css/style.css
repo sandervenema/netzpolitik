@@ -3,6 +3,7 @@ body {
 }
 
 a { color: #192850; }
+a:hover { color: #3a5bb1; }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Times New Roman", "Times", serif;
@@ -31,6 +32,16 @@ ul.errorlist {
 
 ul.errorlist li { 
     color: red; 
+}
+
+ul.languages {
+    list-style: none;
+    position: absolute;
+    right: 126px;
+    top: -57px;
+}
+ul.languages li {
+    display: inline-block;
 }
 
 form {

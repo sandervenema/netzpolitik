@@ -5,12 +5,18 @@
         $('<i class="icon icon-angle-right"></i>').insertBefore('ul.siteswitcher li > a');
     });
 
-    // Siteswitcher on hover, make opacity 1, otherwise fade back to 0.3.
-    $('#siteswitcher').css('opacity', 0.3);
+    // Siteswitcher and languages on hover, make opacity 1, otherwise fade back
+    // to 0.3.
+    $('#siteswitcher, ul.languages').css('opacity', 0.3);
     $('#siteswitcher').hover(function hover_siteswitcher() {
         $(this).animate({opacity: 1});
     }, function onhoverleave_siteswitcher() {
         $('#siteswitcher .sites').delay(3000).hide(0);
+        $(this).delay(3000).animate({opacity: 0.3});
+    });
+    $('ul.languages').hover(function hover_languages() {
+        $(this).animate({opacity: 1});
+    }, function onhoverleave_languages() {
         $(this).delay(3000).animate({opacity: 0.3});
     });
 
