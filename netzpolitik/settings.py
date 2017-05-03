@@ -18,8 +18,8 @@ from django.utils.translation import ugettext_lazy as _
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Temp console backend
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django_sendmail_backend.backends.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django_sendmail_backend.backends.EmailBackend'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -28,7 +28,7 @@ EMAIL_BACKEND = 'django_sendmail_backend.backends.EmailBackend'
 SECRET_KEY = 'PUT SECRET KEY HERE'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -115,8 +115,9 @@ LANGUAGES = [
     ('en', _("English")),
     ('es', _("Spanish")),
     ('fr', _("French")),
-    ('se', _("Swedish")),
+    ('sv', _("Swedish")),
 ]
+LOCALE_PATHS = (BASE_DIR + 'locale',)
 
 TIME_ZONE = 'UTC'
 
