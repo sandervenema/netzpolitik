@@ -4,12 +4,23 @@
 {% block title %}{% trans "Sign the I am WikiLeaks open letter!" %}{% endblock %}
 
 {% block content %}
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as languages %}
+
+    <form id="language_form" action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <select name="language">
+        {% for language in languages %}
+            <option value="{{ language.code }}">{{ language.name_local }}</option>
+        {% endfor %}
+        </select>
+    </form>
+
     <ul class="languages">
-        <li><a href="/openletter"><img src="/static/images/flags/gb.png"> English</a></li>
-        <li><a href="/openletter/de"><img src="/static/images/flags/de.png"> Deutsch</a></li>
-        <li><a href="/openletter/es"><img src="/static/images/flags/es.png"> español</a></li>
-        <li><a href="/openletter/fr"><img src="/static/images/flags/fr.png"> français</a></li>
-        <li><a href="/openletter/se"><img src="/static/images/flags/se.png"> Svenska</a></li>
+    {% for language in languages %}
+        <li><a href="#" data-language-code="{{ language.code }}"><img src="/static/images/flags/{{ language.code }}.png"> {{ language.name_local }}</a></li>
+    {% endfor %}
     </ul>
 
     <div id="siteswitcher">

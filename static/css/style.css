@@ -8,10 +8,6 @@ body {
     margin-top: 60px;
 }
 
-form#language_form {
-    display: none !important;
-}
-
 a { color: #192850; }
 a:hover { color: #3a5bb1; }
 
@@ -155,3 +151,6 @@ a#cta_donate_button {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7fb726', endColorstr='#6aa823',GradientType=0 
 }
 
+#language_form {
+    display: none !important;
+}
