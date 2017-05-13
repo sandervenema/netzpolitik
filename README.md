@@ -1,6 +1,6 @@
 # Netzpolitik.us petition code
 
-This is the petition code used to run the site [Netzpolitik.us](https://netzpolitik.us/statement/). The code is written in Python 3, based on the [Django](https://www.djangoproject.com/) web framework. I use a sqlite3 database to store the signatures. By default this gets stored as `db.sqlite3` in the application root. This can be adjusted by modifying the `netzpolitik/settings.py` file.
+This is the petition code used to run the site Netzpolitik.us. The code is written in Python 3, based on the [Django](https://www.djangoproject.com/) web framework. I use a sqlite3 database to store the signatures. By default this gets stored as `db.sqlite3` in the application root. This can be adjusted by modifying the `netzpolitik/settings.py` file.
 
 ## Deployment
 
@@ -152,7 +152,7 @@ server {
      alias /path/to/app/static;
    }
    
-   location /statement {
+   location /openletter {
      uwsgi_pass django;
      include /path/to/uwsgi_params;
    }
