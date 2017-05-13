@@ -35,7 +35,7 @@ This installs all the dependencies into the virtualenv, so Python can find the r
 
 You should be able to deactivate the virtualenv after installing the required packages; we're going to later tell uwsgi to use the virtualenv environment. Exit the virtualenv by typing: `deactivate`.
 
-### Setting up uswgi
+### Setting up uwsgi
 
 **Make sure you edit the `netzpolitik_uwsgi.ini` file to correct the paths!**
 
@@ -53,12 +53,12 @@ To make sure that uwsgi stays up and starts when we start the server, we're goin
 
 ```
 [uwsgi]
-emperor = /etc/uswgi/vassals
+emperor = /etc/uwsgi/vassals
 uid = www-data
 gid = www-data
 ```
 
-Then we're going to create the vassals directory, and symlink our `netzpolik_uswgi.ini` script in this repository to that location:
+Then we're going to create the vassals directory, and symlink our `netzpolik_uwsgi.ini` script in this repository to that location:
 
 ```
 mkdir /etc/uwsgi/vassals
@@ -66,7 +66,7 @@ cd /etc/uwsgi/vassals
 ln -s /path/to/this/repository/netzpolitik_uwsgi.ini netzpolitik_uwsgi.ini
 ```
 
-So now when we will start uswgi in emperor mode, it will know of our application. Go ahead and try it now by executing `uwsgi /etc/uwsgi/emperor.ini`. It should find the vassal and start the 10 workers again.
+So now when we will start uwsgi in emperor mode, it will know of our application. Go ahead and try it now by executing `uwsgi /etc/uwsgi/emperor.ini`. It should find the vassal and start the 10 workers again.
 
 If you're getting permission denied errors, it's most likely because the log file cannot be created (because you run as www-data). In that case, fix permissions, or create the logfile in advance and fix permissions:
 
@@ -159,4 +159,4 @@ server {
 }
 ```
 
-And that should be all there is to it. Once you have uswgi started and listening on a socket, and you set up nginx to act as the proxy, you should be good to go. If you need a little more info, check [how to deploy Django](https://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html#deploying-django) (from the uswgi site).
+And that should be all there is to it. Once you have uwsgi started and listening on a socket, and you set up nginx to act as the proxy, you should be good to go. If you need a little more info, check [how to deploy Django](https://uwsgi-docs.readthedocs.org/en/latest/WSGIquickstart.html#deploying-django) (from the uwsgi site).
