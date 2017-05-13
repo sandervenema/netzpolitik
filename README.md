@@ -28,21 +28,24 @@ virtualenv -p /usr/bin/python3 venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
+./manage.py migrate
 ```
 
-This installs all the dependencies into the virtualenv, so Python can find the required packages etc. and there will be no conflicts with packages already installed on the system.
+This installs all the dependencies into the virtualenv, so Python can find the required packages etc. and there will be no conflicts with packages already installed on the system. It will execute the required database migrations.
 
 You should be able to deactivate the virtualenv after installing the required packages; we're going to later tell uwsgi to use the virtualenv environment. Exit the virtualenv by typing: `deactivate`.
 
 ### Setting up uswgi
 
-For uwsgi, first check whether it works by executing:
+**Make sure you edit the `netzpolitik_uwsgi.ini` file to correct the paths!**
+
+After editing the ini file, first check whether uwsgi works by executing:
 
 ```
 uwsgi netzpolitik_uwsgi.ini
 ```
 
-This should start 10 workers and the socket should now be created under /tmp. See **Basic nginx configuration** later in this README to see how to hook nginx up to this. Press `CTRL-C` to exit and kill the workers.
+This should start 10 workers and the socket should now be created under /tmp. Check the log file to make sure. See **Basic nginx configuration** later in this README to see how to hook nginx up to this. Press `CTRL-C` to exit and kill the workers.
 
 #### Daemonising uwsgi
 
@@ -64,6 +67,20 @@ ln -s /path/to/this/repository/netzpolitik_uwsgi.ini netzpolitik_uwsgi.ini
 ```
 
 So now when we will start uswgi in emperor mode, it will know of our application. Go ahead and try it now by executing `uwsgi /etc/uwsgi/emperor.ini`. It should find the vassal and start the 10 workers again.
+
+If you're getting permission denied errors, it's most likely because the log file cannot be created (because you run as www-data). In that case, fix permissions, or create the logfile in advance and fix permissions:
+
+```
+touch /var/log/netzpolitik.log
+chown www-data:www-data /var/log/netzpolik.log
+chmod 755 /var/log/netzpolitik.log
+```
+
+Also make sure the files in the repo directory is owned by the same user, so it can write to the database etc.:
+
+```
+chown -R www-data:www-data /path/to/netzpolik/git/working/directory
+```
 
 Once that's working, we need to create a systemd service file. Create a file at `/etc/systemd/system/emperor.uwsgi.service` and put the following into it:
 

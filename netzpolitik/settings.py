@@ -17,9 +17,25 @@ from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Temp console backend
+# Temp console backend -- comment out both lines below during production if you
+# want to use the SMTP backend -- which is the default
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_BACKEND = 'django_sendmail_backend.backends.EmailBackend'
+
+# E-mail SMTP settings
+# Change this!
+#EMAIL_HOST = 
+#EMAIL_PORT =
+#EMAIL_HOST_USER =
+#EMAIL_HOST_PASSWORD =
+#EMAIL_USE_TLS = True
+#EMAIL_USE_SSL = True
+#EMAIL_TIMEOUT =
+# Optional: -- note Django doesn't do certificate checking, they're passed to
+# the underlying SSL connection. For more details, check the docs on Python's
+# ssl.wrap_socket().
+#EMAIL_SSL_KEYFILE =
+#EMAIL_SSL_CERTFILE =
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -28,7 +44,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SECRET_KEY = 'PUT SECRET KEY HERE'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
