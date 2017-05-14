@@ -14,7 +14,7 @@ from .forms import PetitionForm
 def index(request):
     petition = get_object_or_404(Petition, pk=1)
     initial_signatures = petition.signature_set.filter(active=True,
-            initial=True).order_by('-timestamp')
+            initial=True).order_by('name')
     active_signatures = petition.signature_set.filter(active=True,
             initial=False).order_by('-timestamp')
     form = PetitionForm()
@@ -29,7 +29,7 @@ def sign(request):
     if request.method == 'POST':
         petition = get_object_or_404(Petition, pk=1)
         initial_signatures = petition.signature_set.filter(active=True,
-                initial=True).order_by('-timestamp')
+                initial=True).order_by('name')
         active_signatures = petition.signature_set.filter(active=True,
                 initial=False).order_by('-timestamp')
         form = PetitionForm(request.POST)
