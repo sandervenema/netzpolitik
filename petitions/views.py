@@ -26,12 +26,9 @@ def index(request):
         'form': form}) 
 
 def sign(request):
+    petition = get_object_or_404(Petition, pk=1)
+
     if request.method == 'POST':
-        petition = get_object_or_404(Petition, pk=1)
-        initial_signatures = petition.signature_set.filter(active=True,
-                initial=True).order_by('name')
-        active_signatures = petition.signature_set.filter(active=True,
-                initial=False).order_by('-timestamp')
         form = PetitionForm(request.POST)
 
         if form.is_valid():
@@ -65,6 +62,11 @@ def sign(request):
             # Display thank you message
             return render(request, 'petitions/thankyou.html')
         else:
+            initial_signatures = petition.signature_set.filter(active=True,
+                    initial=True).order_by('name')
+            active_signatures = petition.signature_set.filter(active=True,
+                    initial=False).order_by('-timestamp')
+
             return render(request, 'petitions/index.html', {
                 'petition': petition, 
                 'signatures': active_signatures,
