@@ -12,8 +12,6 @@ def validate_duplicate_email(email):
     # Get all hashes from the database and check whether there is a match.
     hashes = [e[0] for e in Signature.objects.values_list('email').all()]
     email_hash = hashlib.sha256(email.encode()).hexdigest()
-    print(hashes, email_hash)
-    print(email_hash in hashes)
     if email_hash in hashes:
         raise ValidationError(_("You can only submit the petition once!"))
 
