@@ -24,7 +24,7 @@ class PetitionForm(forms.Form):
                            max_length=200)
     affiliation = forms.CharField(label='',
                            widget=forms.TextInput(attrs={'placeholder': _('Your affiliation')}), 
-                           max_length=200)
+                           max_length=200, required=False)
     email = forms.EmailField(label='', 
                            widget=forms.TextInput(attrs={'placeholder': _('Your e-mail address')}),
                            validators=[validate_duplicate_email])
