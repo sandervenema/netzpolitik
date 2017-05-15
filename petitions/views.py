@@ -4,7 +4,6 @@ from django.core.urlresolvers import reverse
 from django.template import loader
 from django.utils.translation import ugettext as _
 
-import bcrypt
 import hashlib
 import time
 
@@ -41,7 +40,7 @@ def sign(request):
                 affil, str(timestamp)]).encode('utf-8')).hexdigest()
 
             # Add values to db
-            s = Signature(email=bcrypt.hashpw(email.encode(), bcrypt.gensalt()),
+            s = Signature(email=hashlib.sha256(email.encode()).hexdigest(),
                     name=name, affiliation=affil, petition=petition, link=hash_val)
             s.save()
 
