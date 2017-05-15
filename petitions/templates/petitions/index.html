@@ -64,13 +64,47 @@
     <div class="row">
         <div class="small-12 medium-8 column">
 
-            <h1>{% trans "Open Letter:" %}</h1>
+            <h1>{% trans "Open Letter to President Trump:" %}</h1>
 
-            <p>Put open letter here.</p>
+            <p>{% trans "Dear President Trump," %}</p>
+
+            <p>{% blocktrans %}We are journalists, activists and citizens from the United States and
+            around the world who care about press freedom and are writing to you in
+            response to the latest threat of prosecution against WikiLeaks for its
+            journalistic work. We ask you to immediately close the Grand Jury
+            investigation into WikiLeaks and drop any charges against Julian Assange
+            and other Wikileaks staff members which the Department of Justice is
+            planning.{% endblocktrans %}</p>
+
+            <p>{% blocktrans %}This threat to WikiLeaks escalates a long-running war of attrition
+            against the great virtue of the United States &mdash; free speech. The Obama
+            Administration prosecuted more whistleblowers than all presidents
+            combined and opened a Grand Jury investigation into WikiLeaks that had
+            no precedent. It now appears the US is preparing to take the next step
+            &mdash; prosecuting publishers who provide the "currency" of free speech, to
+            paraphrase Thomas Jefferson. It is reported that charges, including
+            conspiracy, theft of government property and violating the Espionage Act
+            are being considered against members of WikiLeaks, and that charging
+            WikiLeaks Editor, Julian Assange, is now a priority of the Department of
+            Justice.{% endblocktrans %}</p>
+
+            <p>{% blocktrans %}A threat to WikiLeaks' work &mdash; which is publishing information protected
+            under the First Amendment &mdash; is a threat to all free journalism. If the
+            DOJ is able to convict a publisher for its journalistic work, all free
+            journalism can be criminalised.{% endblocktrans %}</p>
+
+            <p>{% blocktrans %}We call on you as President of the United States to close the Grand Jury
+            investigation into WikiLeaks and drop any charges planned against any
+            member of WikiLeaks. It was a free and robust press that provided you
+            with a platform on which to run for president. Defending a truly free
+            press requires freedom from fear and favour and the support of
+            journalists and citizens everywhere; for the kind of threat now facing
+            WikiLeaks &mdash; and all publishers and journalists &mdash; is a step into the
+            darkness.{% endblocktrans %}</p>
 
             <hr>
 
-            <div class="show-for-medium-up">
+            <div>
                 <h4>{% trans "Initial signatures:" %}</h4>
 
                 {% for sig in initial_signatures %}
@@ -93,7 +127,7 @@
 
             <hr>
 
-            <div class="show-for-medium-up">
+            <div>
                 <h4>{% trans "Signatures:" %}</h4>
 
                 {% for sig in signatures %}
