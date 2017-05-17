@@ -6,9 +6,17 @@ from django.utils.translation import ugettext as _
 
 import hashlib
 import time
+import logging
+from smtplib import SMTPException
 
 from .models import Petition, Signature
 from .forms import PetitionForm
+
+
+# get logging instance and set formatter
+logger = logging.getLogger(__name__)
+logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s')
+
 
 def index(request):
     petition = get_object_or_404(Petition, pk=1)
@@ -23,6 +31,7 @@ def index(request):
         'signatures': active_signatures,
         'initial_signatures': initial_signatures,
         'form': form}) 
+
 
 def sign(request):
     petition = get_object_or_404(Petition, pk=1)
@@ -56,7 +65,16 @@ def sign(request):
             message = message_templ.render({'link': link, 'name': name})
 
             # Send confirmation e-mail to sender
-            send_mail(subject, message, from_addr, to_addr, fail_silently=True)
+            try:
+                send_mail(subject, message, from_addr, to_addr)
+            except SMTPException:
+                # mail NOT delivered! log details
+                logger.exception("Mail not sent! "
+                             "(input params: subject={}, from_addr={}, to_addr={}, message={}"
+                             .format(subject, from_addr, to_addr, message))
+                # render the thank you page, but with a confirm link to confirm
+                # manually.
+                return render(request, 'petitions/thankyou.html', {'confirmlink': link})
 
             # Display thank you message
             return render(request, 'petitions/thankyou.html')
@@ -74,6 +92,7 @@ def sign(request):
     else:
         # redirect to index
         return redirect('index')
+
 
 # Confirmation
 def confirm(request, link):

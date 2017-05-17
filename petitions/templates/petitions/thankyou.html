@@ -8,9 +8,16 @@
         <div class="small-12 column">
             <h1>{% trans "Thank you!" %}</h1>
 
-            <p>{% trans "An e-mail with a confirmation link has been sent to your e-mail address to confirm your signature." %}</p>
+            {% if confirmlink %}
+                <p>{% blocktrans %}
+                E-mail failed to send, please confirm your signature by clicking this link: 
+                {% endblocktrans %}
+                <strong><a href="{{ confirmlink }}">{% trans "Confirm" %}</a></strong></p>
+            {% else %}
+                <p>{% trans "An e-mail with a confirmation link has been sent to your e-mail address to confirm your signature." %}</p>
 
-            <p>{% trans "If you don't get a confirmation e-mail, please check your spam folder." %}</p>
+                <p>{% trans "If you don't get a confirmation e-mail, please check your spam folder." %}</p>
+            {% endif %}
 
             <p>
                 <a href="https://twitter.com/share" 
