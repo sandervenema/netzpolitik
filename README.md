@@ -29,9 +29,10 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 ./manage.py migrate
+./manage.py createsuperuser
 ```
 
-This installs all the dependencies into the virtualenv, so Python can find the required packages etc. and there will be no conflicts with packages already installed on the system. It will execute the required database migrations.
+This installs all the dependencies into the virtualenv, so Python can find the required packages etc. and there will be no conflicts with packages already installed on the system. It will execute the required database migrations. It also asks you to create a super user for the backend admin interface (reachable by default via `/openletter/admin`).
 
 You should be able to deactivate the virtualenv after installing the required packages; we're going to later tell uwsgi to use the virtualenv environment. Exit the virtualenv by typing: `deactivate`.
 
