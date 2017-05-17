@@ -8,6 +8,9 @@ class Petition(models.Model):
     def signatures(self):
         return self.signature_set.filter(active=True).count()
 
+    def __str__(self):
+        return self.title
+
 
 class Signature(models.Model):
     email = models.CharField(max_length=254, null=True)
@@ -18,4 +21,7 @@ class Signature(models.Model):
     active = models.BooleanField(default=False)
     initial = models.BooleanField(default=False)
     timestamp = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name
 
