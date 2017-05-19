@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iamwikileaks 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-19 13:29+0000\n"
+"POT-Creation-Date: 2017-05-19 13:46+0000\n"
 "PO-Revision-Date: 2017-05-19 15:09+0100\n"
 "Last-Translator: Sander Venema <sander@sandervenema.ch>\n"
 "Language-Team: sv\n"
@@ -17,6 +17,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
+
+#: netzpolitik/settings.py:172
+msgid "German"
+msgstr "Tyska"
+
+#: netzpolitik/settings.py:173
+msgid "English"
+msgstr "Engelska"
+
+#: netzpolitik/settings.py:174
+msgid "Spanish"
+msgstr "Spanska"
+
+#: netzpolitik/settings.py:175
+msgid "French"
+msgstr "Franska"
+
+#: netzpolitik/settings.py:176
+msgid "Swedish"
+msgstr "Svenska"
 
 #: petitions/forms.py:16
 msgid "You can only submit the petition once!"
@@ -88,6 +108,10 @@ msgstr "Skriv på det öppna brevet I am WikiLeaks!"
 #: petitions/templates/petitions/index.html:29
 msgid "our network"
 msgstr "vårt nätverk"
+
+#: petitions/templates/petitions/index.html:60
+msgid "Donate Now!"
+msgstr ""
 
 #: petitions/templates/petitions/index.html:66
 msgid "Open Letter to President Trump:"
@@ -220,6 +244,10 @@ msgid ""
 "            confirmation link to confirm your signature.\n"
 "            "
 msgstr ""
+"\n"
+"Din e-postadress kommer inte att lagras av systemet, den kommer endast "
+"att användas en gång för att skicka ett meddelande med en länk för att "
+"bekräfta din underskrift."
 
 #: petitions/templates/petitions/thankyou.html:12
 msgid ""
@@ -254,18 +282,3 @@ msgstr ""
 #: petitions/views.py:67
 msgid "I am WikiLeaks: Confirm your signature"
 msgstr "I am WikiLeaks: Bekräfta din underskrift"
-
-#~ msgid "German"
-#~ msgstr "Tyska"
-
-#~ msgid "English"
-#~ msgstr "Engelska"
-
-#~ msgid "Spanish"
-#~ msgstr "Spanska"
-
-#~ msgid "French"
-#~ msgstr "Franska"
-
-#~ msgid "Swedish"
-#~ msgstr "Svenska"

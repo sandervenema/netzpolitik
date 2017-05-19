@@ -139,7 +139,7 @@ LANGUAGES = [
     ('fr', _("French")),
     ('sv', _("Swedish")),
 ]
-LOCALE_PATHS = (BASE_DIR + 'locale',)
+LOCALE_PATHS = (BASE_DIR + '/petitions/locale',)
 
 TIME_ZONE = 'UTC'
 
