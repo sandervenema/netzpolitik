@@ -81,6 +81,21 @@ msgid ""
 "\n"
 "The I am WikiLeaks Team\n"
 msgstr ""
+"\n"
+"Hej %(name)s,\n"
+"\n"
+"Tack för att du skriver under det öppna brevet!\n"
+"\n"
+"Vänligen klicka på bekräftelselänken nedan för att bekräfta din underskrift.\n"
+"\n"
+"%(link)s\n"
+"\n"
+"Med vänliga hälsningar,\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"I am WikiLeaks-teamet\n"
 
 #: petitions/templates/petitions/confirmed.html:4
 #: petitions/templates/petitions/thankyou.html:4
@@ -111,7 +126,7 @@ msgstr "vårt nätverk"
 
 #: petitions/templates/petitions/index.html:60
 msgid "Donate Now!"
-msgstr ""
+msgstr "Donera nu!"
 
 #: petitions/templates/petitions/index.html:66
 msgid "Open Letter to President Trump:"
