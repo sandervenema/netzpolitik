@@ -63,7 +63,6 @@
 
     <div class="row">
         <div class="small-12 medium-8 column">
-
             <h1>{% trans "Open Letter to President Trump:" %}</h1>
 
             <p>{% trans "Dear President Trump," %}</p>
@@ -160,9 +159,11 @@
                 <input type="submit" value="{% trans "Add!" %}" class="button radius btn-success">
             </form>
 
-            <p><small>Your e-mail address will not be stored by the system, and
+            <p><small>{% blocktrans %}
+            Your e-mail address will not be stored by the system, and
             will only be used to send you an e-mail once, with a
-            confirmation link to confirm your signature.</small></p>
+            confirmation link to confirm your signature.
+            {% endblocktrans %}</small></p>
         </div>
     </div>
 {% endblock %}

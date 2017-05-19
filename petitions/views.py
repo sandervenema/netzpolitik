@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
+from django.conf import settings
 from django.template import loader
-from django.utils.translation import ugettext as _
+from django.utils.translation import LANGUAGE_SESSION_KEY, ugettext as _
 
 import hashlib
 import time
@@ -18,7 +19,12 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(format='%(asctime)s %(levelname)s: %(message)s')
 
 
-def index(request):
+def index(request, lang):
+    # set language explicitly if we specify a language in URL
+    available_languages = [code for (code, trans) in settings.LANGUAGES]
+    if lang is not None and lang in available_languages:
+        request.session[LANGUAGE_SESSION_KEY] = lang
+
     petition = get_object_or_404(Petition, pk=1)
     initial_signatures = petition.signature_set.filter(active=True,
             initial=True).order_by('name')
