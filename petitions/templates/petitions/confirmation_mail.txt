@@ -1,3 +1,6 @@
+{% load i18n %}
+
+{% blocktrans %}
 Dear {{ name }},
 
 Thank you for signing the open letter!
@@ -12,3 +15,4 @@ Kind regards,
 
 
 The I am WikiLeaks Team
+{% endblocktrans %}
