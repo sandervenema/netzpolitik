@@ -43,11 +43,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'PUT SECRET KEY HERE'
 
+CSRF_COOKIE_SECURE = False
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
