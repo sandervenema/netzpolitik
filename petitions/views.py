@@ -3,7 +3,8 @@ from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.template import loader
-from django.utils.translation import LANGUAGE_SESSION_KEY, ugettext as _
+from django.utils import translation
+from django.utils.translation import ugettext as _
 
 import hashlib
 import time
@@ -23,7 +24,8 @@ def index(request, lang):
     # set language explicitly if we specify a language in URL
     available_languages = [code for (code, trans) in settings.LANGUAGES]
     if lang is not None and lang in available_languages:
-        request.session[LANGUAGE_SESSION_KEY] = lang
+        translation.activate(lang)
+        request.LANGUAGE_CODE = translation.get_language()
 
     petition = get_object_or_404(Petition, pk=1)
     initial_signatures = petition.signature_set.filter(active=True,
