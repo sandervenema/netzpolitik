@@ -14,6 +14,8 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -47,6 +49,7 @@ CSRF_COOKIE_SECURE = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+IAMWL_LOG_REQUESTS = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -109,6 +112,37 @@ DATABASES = {
     }
 }
 
+if IAMWL_LOG_REQUESTS:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'logfile': {
+                'class': 'logging.handlers.WatchedFileHandler',
+                'filename': '/tmp/iamwl-django.log',
+            },
+        },
+        'loggers': {
+            'django.request': {
+                'handers': ['logfile'],
+                'level': 'DEBUG',
+                'propagate': True,
+            },
+            'django.template': {
+                'handers': ['logfile'],
+                'level': 'INFO',
+                'propagate': True,
+            },
+            'django': {
+                'handlers': ['logfile'],
+                'level': 'DEBUG',
+            },
+            'petitions': {
+                'handlers': ['logfile'],
+                'level': 'DEBUG',
+            },
+        },
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
