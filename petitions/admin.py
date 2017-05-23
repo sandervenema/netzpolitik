@@ -9,6 +9,11 @@ class PetitionAdmin(admin.ModelAdmin):
     list_display = ('title', 'body')
 
 
+def make_active(modeladmin, request, queryset):
+    queryset.update(active=True)
+make_active.short_description = "Confirm selected signatures"
+
+
 @admin.register(Signature)
 class SignatureAdmin(admin.ModelAdmin):
     fields = ('name', 'affiliation', 'petition', 'active', 'initial',
@@ -17,6 +22,8 @@ class SignatureAdmin(admin.ModelAdmin):
             'timestamp')
     list_filter = ('active', 'initial')
     search_fields = ['name', 'affiliation', 'email']
+    actions = [make_active]
+
 
 
 admin.site.site_title = 'IamWL Backend'
