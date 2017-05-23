@@ -6,13 +6,13 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: iamwikileaks 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-19 14:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: fr\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,47 +20,47 @@ msgstr ""
 
 #: netzpolitik/settings.py:172
 msgid "German"
-msgstr ""
+msgstr "Allemand"
 
 #: netzpolitik/settings.py:173
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: netzpolitik/settings.py:174
 msgid "Spanish"
-msgstr ""
+msgstr "Espagnol"
 
 #: netzpolitik/settings.py:175
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: netzpolitik/settings.py:176
 msgid "Swedish"
-msgstr ""
+msgstr "Suédois"
 
 #: petitions/forms.py:16
 msgid "You can only submit the petition once!"
-msgstr ""
+msgstr "Vous avez déjà signé cette pétition!"
 
 #: petitions/forms.py:21
 msgid "Your name"
-msgstr ""
+msgstr "Nom"
 
 #: petitions/forms.py:24
 msgid "Your affiliation"
-msgstr ""
+msgstr "Affiliation"
 
 #: petitions/forms.py:27
 msgid "Your e-mail address"
-msgstr ""
+msgstr "E-mail"
 
 #: petitions/templates/404.html:4
 msgid "Page not found!"
-msgstr ""
+msgstr "Page non trouvée!"
 
 #: petitions/templates/404.html:11
 msgid "The page you were looking for cannot be found."
-msgstr ""
+msgstr "La page recherchée est introuvable"
 
 #: petitions/templates/petitions/confirmation_mail.txt:3
 #, python-format
@@ -81,45 +81,61 @@ msgid ""
 "\n"
 "The I am WikiLeaks Team\n"
 msgstr ""
+"\n"
+"Cher/Chère %(name)s,\n"
+"\n"
+"Nous vous remercions d'avoir signé la lettre ouverte au Président Trump!\n"
+"\n"
+"Afin de valider votre signature, vous devez cliquer sur le lien de confirmation ci-dessous:\n"
+"\n"
+"%(link)s\n"
+"\n"
+"Cordialement,\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"L'équipe d'I am WikiLeaks\n"
+
 
 #: petitions/templates/petitions/confirmed.html:4
 #: petitions/templates/petitions/thankyou.html:4
 #: petitions/templates/petitions/thankyou.html:9
 msgid "Thank you!"
-msgstr ""
+msgstr "Merci"
 
 #: petitions/templates/petitions/confirmed.html:9
 msgid "Confirmed!"
-msgstr ""
+msgstr "Validé!"
 
 #: petitions/templates/petitions/confirmed.html:11
 msgid "Your signature was successfully processed. Thank you for your support."
-msgstr ""
+msgstr "Votre signature a été validée. Nous vous remercions pour votre soutien."
 
 #: petitions/templates/petitions/confirmed.html:13
 #: petitions/templates/petitions/thankyou.html:33
 msgid "Back to the petition"
-msgstr ""
+msgstr "Retour à la lettre ouverte"
 
 #: petitions/templates/petitions/index.html:4
 msgid "Sign the I am WikiLeaks open letter!"
-msgstr ""
+msgstr "Signez la lettre ouverte I am WikiLeaks!"
 
 #: petitions/templates/petitions/index.html:29
 msgid "our network"
-msgstr ""
+msgstr "notre réseau"
 
 #: petitions/templates/petitions/index.html:60
 msgid "Donate Now!"
-msgstr ""
+msgstr "Faites un don!"
 
 #: petitions/templates/petitions/index.html:66
 msgid "Open Letter to President Trump:"
-msgstr ""
+msgstr "Lettre ouverte au Président Trump"
 
 #: petitions/templates/petitions/index.html:68
 msgid "Dear President Trump,"
-msgstr ""
+msgstr "Monsieur le Président,"
 
 #: petitions/templates/petitions/index.html:70
 msgid ""
@@ -135,7 +151,7 @@ msgid ""
 "            and other Wikileaks staff members which the Department of "
 "Justice is\n"
 "            planning."
-msgstr ""
+msgstr "Nous sommes des journalistes, activistes et citoyens des États-Unis d'Amérique et du monde entier. Nous nous faisons du souci pour la liberté de la presse et c'est pourquoi nous vous écrivons cette lettre en réponse aux récentes menaces de poursuites contre WikiLeaks pour son travail journalistique. Nous vous demandons de clore immédiatement l'enquête du grand jury contre WikiLeaks et d'abandonner les charges contre Julian Assanges et les autres membres de l'équipe de WikiLeaks prévues par le Ministère de la Justice. "
 
 #: petitions/templates/petitions/index.html:78
 msgid ""
@@ -160,6 +176,7 @@ msgid ""
 "Department of\n"
 "            Justice."
 msgstr ""
+"Cette menace contre WikiLeaks intensifie une longue guerre d'usure contre cette grande valeur des États-Unis qu'est la liberté d'expression. Le gouvernement de Barack Obama a engagé des poursuites judiciares contre plus de lanceurs d'alerte que tous les présidents réunis et a ouvert une enquête sans précédent contre WikiLeaks par un grand jury. Il est clair maintenant que les États-Unis se préparent à franchir une étape - engager des poursuites contre les éditeurs qui fournissent la \"devise\" qu'est la liberté d'expression, pour paraphraser Thomas Jefferson. Il a été rapporté que des poursuites pour complot, vol de biens gouvernementaux, violation de l'Espionage Act et plus encore, sont en préparation contre les membres de l'équipe de WikiLeaks, et que la poursuite du rédacteur de WikiLeaks Julian Assange est désormais une priorité pour le Ministère de la Justice. "
 
 #: petitions/templates/petitions/index.html:90
 msgid ""
@@ -170,7 +187,7 @@ msgid ""
 "            DOJ is able to convict a publisher for its journalistic work, "
 "all free\n"
 "            journalism can be criminalised."
-msgstr ""
+msgstr "Une menace contre WikiLeaks, dont les publications sont protégées par le premier amendement de la constitution américaine, est une menace contre la liberté de la presse en général. Si le Ministère de la Justice peut reconnaitre un éditeur coupable pour son travail de journaliste, toute publication peut être criminalisée."
 
 #: petitions/templates/petitions/index.html:95
 msgid ""
@@ -187,27 +204,27 @@ msgid ""
 "            WikiLeaks &mdash; and all publishers and journalists &mdash; is "
 "a step into the\n"
 "            darkness."
-msgstr ""
+msgstr "C'est pourquoi nous vous appelons en tant que Président des États-Unis à clore l'enquête du grand jury contre WikiLeaks et à abandonner toutes charges prévues contre les membre de l'équipe de WikiLeaks. C'est grâce à une presse libre et robuste que vous avez pu être élu. Défendre une réelle liberté de a presse nécessite de se libérer de la peur ainsi que d'encourager et de soutenir les journalists et les citoyens ; une menace telle que celle à laquelle WikiLeaks doit faire face - et ainsi, tous les éditeurs et journalistes - est un pas vers la pénombre."
 
 #: petitions/templates/petitions/index.html:107
 msgid "Initial signatures:"
-msgstr ""
+msgstr "Premières signatures"
 
 #: petitions/templates/petitions/index.html:130
 msgid "Signatures:"
-msgstr ""
+msgstr "Signatures"
 
 #: petitions/templates/petitions/index.html:152
 msgid "Add Your Name!"
-msgstr ""
+msgstr "Ajoutez votre nom à la lettre ouverte!"
 
 #: petitions/templates/petitions/index.html:153
 msgid "Number of new signatures since launch:"
-msgstr ""
+msgstr "Nombre de signatures depuis la publications:"
 
 #: petitions/templates/petitions/index.html:159
 msgid "Add!"
-msgstr ""
+msgstr "Ajouter!"
 
 #: petitions/templates/petitions/index.html:162
 msgid ""
@@ -217,6 +234,8 @@ msgid ""
 "            confirmation link to confirm your signature.\n"
 "            "
 msgstr ""
+"\n"
+"Votre adresse e-mail ne sera pas enregistrée dans notre base de données. Nous n'en ferons usage qu'une seule fois afin de vous envoyer un lien pour valider votre signature."
 
 #: petitions/templates/petitions/thankyou.html:12
 msgid ""
@@ -225,21 +244,23 @@ msgid ""
 "clicking this link: \n"
 "                "
 msgstr ""
+"\n"
+"L'e-mail n'a pas pu être envoyé. Pour valider votre signature, suivez ce lien:"
 
 #: petitions/templates/petitions/thankyou.html:15
 msgid "Confirm"
-msgstr ""
+msgstr "Valider"
 
 #: petitions/templates/petitions/thankyou.html:17
 msgid ""
 "An e-mail with a confirmation link has been sent to your e-mail address to "
 "confirm your signature."
-msgstr ""
+msgstr "Un lien vous a été envoyé par e-mail pour valider votre signature."
 
 #: petitions/templates/petitions/thankyou.html:19
 msgid "If you don't get a confirmation e-mail, please check your spam folder."
-msgstr ""
+msgstr "Si vous n'avez pas reçu notre e-mail, vérifiez votre dossier courrier indésirable ou spam."
 
 #: petitions/views.py:67
 msgid "I am WikiLeaks: Confirm your signature"
-msgstr ""
+msgstr "I am WikiLeaks: validez votre signature"
