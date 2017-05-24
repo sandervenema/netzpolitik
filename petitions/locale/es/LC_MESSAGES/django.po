@@ -48,11 +48,11 @@ msgstr "Su nombre"
 
 #: petitions/forms.py:24
 msgid "Your affiliation"
-msgstr "Su afiliaci&oacute;n"
+msgstr "Su afiliación"
 
 #: petitions/forms.py:27
 msgid "Your e-mail address"
-msgstr "Su direcci&oacute;n de e-mail"
+msgstr "Su dirección de e-mail"
 
 #: petitions/templates/404.html:4
 msgid "Page not found!"
@@ -222,7 +222,7 @@ msgstr "N&uacute;mero de nuevos firmantes desde el inicio de la campa&ntilde;a:"
 
 #: petitions/templates/petitions/index.html:159
 msgid "Add!"
-msgstr "&iexcl;&ntilde;ada!"
+msgstr "&iexcl;Añada!"
 
 #: petitions/templates/petitions/index.html:162
 msgid ""
