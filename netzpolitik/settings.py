@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 import os
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
@@ -65,14 +65,13 @@ INSTALLED_APPS = [
     'petitions',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -119,7 +118,7 @@ if IAMWL_LOG_REQUESTS:
         'handlers': {
             'logfile': {
                 'class': 'logging.handlers.WatchedFileHandler',
-                'filename': '/tmp/iamwl-django.log',
+                'filename': 'openletter-django.log',
             },
         },
         'loggers': {
@@ -190,3 +189,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

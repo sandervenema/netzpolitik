@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.core.mail import send_mail
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.conf import settings
 from django.template import loader
 from django.utils import translation
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 import hashlib
 import time

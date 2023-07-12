@@ -16,7 +16,7 @@ class Signature(models.Model):
     email = models.CharField(max_length=254, null=True)
     name = models.CharField(max_length=200)
     affiliation = models.CharField(max_length=200, null=True)
-    petition = models.ForeignKey(Petition)
+    petition = models.ForeignKey(Petition, models.CASCADE)
     link = models.CharField(max_length=256, null=True)
     active = models.BooleanField(default=False)
     initial = models.BooleanField(default=False)

@@ -1,8 +1,8 @@
-from django.conf.urls import include, url
+from django.urls import include, re_path
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'openletter/', include('petitions.urls')),
-    url(r'openletter/i18n/', include('django.conf.urls.i18n')),
-    url(r'openletter/admin/', include(admin.site.urls)),
+    re_path(r'openletter/', include('petitions.urls')),
+    re_path(r'openletter/i18n/', include('django.conf.urls.i18n')),
+    re_path(r'openletter/admin/', admin.site.urls),
 ]
